@@ -1,0 +1,36 @@
+{
+  "capture": {
+    "region": null,
+    "monitor_index": 0,
+    "dpi_scale": 1.0
+  },
+
+  "vision": {
+    "white_threshold": 210,
+    "black_threshold": 50,
+    "min_blob_size": 200
+  },
+
+  "control": {
+    "tolerance_px": 12,
+    "min_flip_ms": 60,
+    "loop_hz": 90
+  },
+
+  "input": {
+    "mouse_button": "left",
+    "failsafe_release_on_stop": true
+  },
+
+  "safety": {
+    "stop_key": "F12",
+    "require_game_focused": false,
+    "max_run_seconds": 0
+  },
+
+  "debug": {
+    "show_preview": true,
+    "draw_overlay": true,
+    "log_level": "info"
+  }
+}
