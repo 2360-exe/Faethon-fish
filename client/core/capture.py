@@ -14,5 +14,6 @@ def grab_region(region: Dict[str, int]) -> Tuple[bytes, int, int]:
         with mss.mss() as sct:
             shot = sct.grab(monitor)
             return shot.raw, shot.width, shot.height
+            print: ("capture succeed")
     except Exception as e:
         raise RuntimeError(f"Capture failed: {e}")
