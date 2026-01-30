@@ -13,13 +13,7 @@ class DetectionResult:
 
 
 def detect_zone_and_bar_bgra(raw: bytes, w: int, h: int) -> DetectionResult:
-    """
-    Restored working version:
-    - Original horizontal crop (40%–60%)
-    - No vertical crop
-    - No smoothing
-    - Improved black-bar detection
-    """
+  
 
     if not raw or w <= 0 or h <= 0:
         return DetectionResult(None, None, None, False)
@@ -35,21 +29,16 @@ def detect_zone_and_bar_bgra(raw: bytes, w: int, h: int) -> DetectionResult:
     rgb = arr[..., :3]
     brightness = rgb.sum(axis=2)
 
-    # -------------------------
-    # ORIGINAL WORKING CROP
-    # -------------------------
+  
+    
+    # edit as needed until working - faye in class
     CROP_LEFT = int(w * 0.40)
     CROP_RIGHT = int(w * 0.60)
 
     cropped = brightness[:, CROP_LEFT:CROP_RIGHT]
 
-    # -------------------------
-    # Improved thresholds
-    # -------------------------
-    # White line: slightly softer threshold
+    # edit thresholds as needed
     white_mask = cropped > 650
-
-    # Black bar: more aggressive threshold to avoid water noise
     black_mask = cropped < 100
 
     white_counts = white_mask.sum(axis=1)
